@@ -1,6 +1,6 @@
 CXX = g++
 
-CXXFLAGS = -O2 -g -Wall -fmessage-length=0 -I../gtest/include
+CXXFLAGS = -O2 -g -Wall -fmessage-length=0 -std=c++11 -I../gtest/include
 
 OBJS = BitVector.o BitVectorTest.o 
 
