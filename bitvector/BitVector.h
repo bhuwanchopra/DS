@@ -9,6 +9,8 @@
 #define BITVECTOR_H_
 
 #include <inttypes.h>
+#include <stdlib.h>
+#include <stddef.h>
 #include <vector>
 
 #define SHIFT 5   // This is the number of bits in word size(32)
