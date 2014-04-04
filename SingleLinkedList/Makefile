@@ -1,6 +1,6 @@
 CXX = g++
 
-CXXFLAGS = -O2 -g -Wall -fmessage-length=0 -std=c++11 -I../gtest/include -I.
+CXXFLAGS = -O2 -g -Wall -fmessage-length=0 -fwhole-program -ffunction-sections -fdata-sections -std=c++11 -I../gtest/include -I.
 
 OBJS = SingleLinkedList.o SingleLinkedListTest.o gtest-all.o
 

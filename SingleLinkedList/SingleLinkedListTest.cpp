@@ -10,9 +10,12 @@
 TEST(SingleLinkedListTraversal, Traversal) {
 	{
 		SingleLinkedList<int> list(1);
-		vector<int> e = {1};
-		vector<int> f = list.traversal();
-		EXPECT_EQ(f, e);
+		EXPECT_EQ(vector<int>({1}), list.traversal());
+	}
+	{
+		SingleLinkedList<int> list(1);
+		list.insert(2);
+		EXPECT_EQ(vector<int>({2,1}), list.traversal());
 	}
 }
 
