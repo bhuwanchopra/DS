@@ -35,24 +35,14 @@ template<class DataType>
 class SingleLinkedList {
 public:
 	SingleLinkedListNode<DataType>* head;
-	explicit SingleLinkedList(DataType value) {
-		head = new SingleLinkedListNode<DataType>(value);
-	}
 
-	void insert(DataType value) {
-		head = new SingleLinkedListNode<DataType>(head, value);
-	}
+	explicit SingleLinkedList(DataType value);
 
-	~SingleLinkedList() {
-		for(auto p = head; nullptr != p;) {
-			auto nextp = p->getNext();
-			delete p;
-			p = nextp;
-		}
-	}
+	void insert(DataType value);
+
+	vector<DataType> traversal();
+
+	~SingleLinkedList();
 };
-
-template<class DataType>
-extern vector<DataType> traversal(SingleLinkedList<DataType>& list);
 
 #endif /* SINGLELINKEDLIST_H_ */
