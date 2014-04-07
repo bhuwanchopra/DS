@@ -9,6 +9,7 @@
 #define SINGLELINKEDLIST_H_
 
 #include <cstddef>
+#include <cassert>
 #include <vector>
 
 using std::vector;
@@ -24,6 +25,9 @@ public:
 	inline SingleLinkedListNode* getNext() {
 		return next_;
 	}
+	inline void setNext(SingleLinkedListNode<DataType>* ptr) {
+		next_ = ptr;
+	}
 	explicit SingleLinkedListNode(DataType value) :
 			SingleLinkedListNode(nullptr, value) {
 	}
@@ -36,9 +40,15 @@ class SingleLinkedList {
 public:
 	SingleLinkedListNode<DataType>* head_;
 
-	explicit SingleLinkedList(DataType value);
+	SingleLinkedList(DataType value);
+
+	SingleLinkedList();
 
 	void insert(DataType value);
+
+	bool remove(DataType value);
+
+	SingleLinkedListNode<DataType>* find(DataType value);
 
 	vector<DataType> traversal();
 
@@ -51,8 +61,52 @@ SingleLinkedList<DataType>::SingleLinkedList(DataType value) {
 }
 
 template<class DataType>
+SingleLinkedList<DataType>::SingleLinkedList() :
+	head_(nullptr) {}
+
+template<class DataType>
 void SingleLinkedList<DataType>::insert(DataType value) {
 	head_ = new SingleLinkedListNode<DataType>(head_, value);
+}
+
+template<class DataType>
+bool SingleLinkedList<DataType>::remove(DataType value) {
+	SingleLinkedListNode<DataType>* node_to_delete = find(value);
+	if (nullptr == node_to_delete) {
+		return false;
+	}
+
+	if (node_to_delete == head_) {
+		head_ = head_->getNext();
+		delete node_to_delete;
+		return true;
+	}
+
+	SingleLinkedListNode<DataType>* prev_ptr;
+	for (prev_ptr = head_;
+		 nullptr != prev_ptr->getNext() && node_to_delete != prev_ptr->getNext();
+		 prev_ptr = prev_ptr->getNext())
+		;
+
+	if (nullptr == prev_ptr->getNext()) {
+		return false;
+	} else {
+		prev_ptr->setNext(prev_ptr->getNext()->getNext());
+		delete node_to_delete;
+		return true;
+	}
+	assert(0);
+}
+
+template<class DataType>
+SingleLinkedListNode<DataType>* SingleLinkedList<DataType>::find(
+		DataType value) {
+	SingleLinkedListNode<DataType>* p;
+	for (p = head_;
+		 nullptr != p && p->getData() != value;
+		 p = p->getNext())
+		;
+	return p;
 }
 
 template<class DataType>
