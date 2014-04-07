@@ -29,6 +29,23 @@ TEST(SingleLinkedListTraversal, Traversal) {
 		list.insert(0);
 		EXPECT_EQ(vector<int>({0,0,0}), list.traversal());
 	}
+	{
+		struct Mystruct {
+			int val_;
+			Mystruct(int val) :
+				val_ (val) {}
+			bool operator==(const Mystruct& comp) const {
+				return comp.val_ == val_;
+			}
+		};
+		SingleLinkedList<Mystruct> list(Mystruct(1));
+		EXPECT_EQ(vector<Mystruct>({Mystruct(1)}), list.traversal());
+		list.insert(Mystruct(2));
+		EXPECT_EQ(vector<Mystruct>({Mystruct(2),Mystruct(1)}), list.traversal());
+		list.insert(Mystruct(3));
+		EXPECT_EQ(vector<Mystruct>({Mystruct(3),Mystruct(2),Mystruct(1)}),
+				list.traversal());
+	}
 }
 
 int main(int argc, char **argv) {
