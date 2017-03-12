@@ -1,4 +1,4 @@
-#include "IterativePreorder.h"
+#include "IterativePostorder.h"
 #include <vector>
 
 using namespace std;
@@ -7,9 +7,9 @@ using namespace std;
 Expected Output
 
 Test case::: 1
-50, 17, 12, 9, 14, 23, 19, 72, 54, 67, 76, 
+9, 14, 12, 19, 23, 17, 67, 54, 76, 72, 50, 
 Test case::: 2
-2, 1, 32, 12, 24, 21, 54, 
+1, 21, 24, 12, 54, 32, 2, 
 
 */
 
@@ -22,7 +22,7 @@ int main() {
 
         for (auto i: V) tree.addNode(i);
         
-        iterativePreorder(tree, order);
+        iterativePostorder(tree, order);
         for (auto i: order) cout << i << ", ";
         cout << endl;
     }
@@ -35,7 +35,7 @@ int main() {
 
         for (auto i: V) tree.addNode(i);
         
-        iterativePreorder(tree, order);
+        iterativePostorder(tree, order);
         for (auto i: order) cout << i << ", ";
         cout << endl;
     }

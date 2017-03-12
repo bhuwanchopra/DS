@@ -3,16 +3,6 @@
 #include <vector>
 #include <stack>
 
-/*
-Expected Output
-
-Test case::: 1
-50, 17, 12, 9, 14, 23, 19, 72, 54, 67, 76, 
-Test case::: 2
-2, 1, 32, 12, 24, 21, 54, 
-
-*/
-
 template <class T>
 void iterativePreorder(BinarySearchTree<T>& tree, std::vector<T>& retVector) {
     retVector.clear();
