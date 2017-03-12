@@ -3,6 +3,17 @@
 
 using namespace std;
 
+/*
+Expected Output
+
+Test case::: 1
+23
+72
+Test case::: 2
+Test Passed
+
+*/
+
 int main() {
     cout<<"Test case::: 1\n";
     {
