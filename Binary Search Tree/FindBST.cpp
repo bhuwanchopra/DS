@@ -27,17 +27,17 @@ int main() {
 
         for (auto i: V) tree.addNode(i);
 
-        cout<<find(tree, 0)<<endl;
-        cout<<find(tree, 100)<<endl;
-        cout<<find(tree, 50)<<endl;
-        cout<<find(tree, 23)<<endl;
-        cout<<find(tree, 67)<<endl;
+        cout<<findNode(tree, 0)<<endl;
+        cout<<findNode(tree, 100)<<endl;
+        cout<<findNode(tree, 50)<<endl;
+        cout<<findNode(tree, 23)<<endl;
+        cout<<findNode(tree, 67)<<endl;
     }
     
     cout<<"Test case::: 2\n";
     {
         BinarySearchTree<int> tree;
-        cout<<find(tree, 0)<<endl;
+        cout<<findNode(tree, 0)<<endl;
     }
 
     return 0;

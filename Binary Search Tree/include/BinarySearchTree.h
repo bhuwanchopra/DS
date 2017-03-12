@@ -1,3 +1,5 @@
+#pragma once
+
 #include <memory>
 #include <iostream>
 
@@ -59,3 +61,9 @@ public:
 private:
     TreeNode<T>* root;
 };
+
+template<class T>
+bool find(BinarySearchTree<T>& tree, T val);
+
+template<class T>
+TreeNode<T>* getLCA(BinarySearchTree<T>& tree, T val1, T val2);

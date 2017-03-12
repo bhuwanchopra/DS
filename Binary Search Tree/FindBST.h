@@ -1,7 +1,9 @@
+#pragma once
+
 #include "include/BinarySearchTree.h"
 
 template<class T>
-bool find(BinarySearchTree<T>& tree, T val) {
+bool findNode(BinarySearchTree<T>& tree, T val) {
     auto p = tree.getRoot();
     
     while (p) {

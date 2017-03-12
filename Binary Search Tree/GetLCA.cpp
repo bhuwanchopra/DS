@@ -5,6 +5,20 @@
 
 using namespace std;
 
+/*
+Expected Output
+
+Test case::: 1
+17
+12
+50
+67
+0
+Test case::: 2
+0
+
+*/
+
 int main() {
     cout<<"Test case::: 1\n";
     {
